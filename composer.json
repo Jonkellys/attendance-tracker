@@ -1,0 +1,12 @@
+{
+    "name": "jonkellys/attendance-tracker",
+    "description": "Keep track of your employees attendances",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jonkellys",
+            "email": "jonke2331@gmail.com"
+        }
+    ],
+    "require": {}
+}
