@@ -2,6 +2,7 @@
     "name": "jonkellys/attendance-tracker",
     "description": "Keep track of your employees attendances",
     "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "Jonkellys",
