@@ -12,7 +12,7 @@
 
     if($pass == "" || $newpass == "") {
         echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                Debes llenar todos los campos.
+                You must complete all fields.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
         exit(); 
@@ -20,17 +20,17 @@
 
     if(strlen($pass) < 8){
         echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                La contraseña debe tener mínimo 8 carácteres.
+                The password must be at least 8 characters long.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
         exit();
     }
     
     if($pass != $newpass){
-        echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                Las contraseñas no coinciden.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
+        echo "<div class='alert alert-danger alert-dismissible' role='alert'>
+                The passwords don't match.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>";
         exit();
     }  
 
@@ -53,12 +53,12 @@
 
     if($sql->execute()){
         echo '<div class="alert alert-success" role="alert">
-                Contraseña actualizada correctamente.
+                Password updated correctly.
             </div>';
-        echo '<script> window.location.href = "http://localhost/sistema-asistencias/login"; </script>';
+        echo '<script> window.location.href = "http://localhost/attendance-tracker/login"; </script>';
     } else{
         echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                Hubo un error intente de nuevo.
+                There was a problem, try again later.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
     }

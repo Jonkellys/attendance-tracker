@@ -23,42 +23,38 @@
 
   </head>
 
-  <body>
-    <!-- Content -->
+  <style>
+    .h-25r {
+      height: 25rem !important;
+    }
+  </style>
 
-    <!--Under Maintenance -->
+  <body>
     <div class="container-xxl container-p-y">
-      <div class="misc-wrapper">
-      <div class="app-brand justify-content-center">
-        <a href="javascript:void(0);" class="app-brand-link gap-2">
-        <span style="width: 19%; height: 25%;" class="app-brand-logo demo">
-              <img style="width: 70%; height: 70%;" src="<?php echo media; ?>assets/img/logo1.png" alt="">
-            </span>
-            <h3 class="demo menu-text fw-bolder ms-2" style="width: fit-content; margin-top: 8%;"><?php echo NOMBRE; ?></h3>
-        </a>
-      </div>
-      <p class="mb-0" style="margin-top: 1%;">Bienvenido, al sistema de asistencias de <?php echo NOMBRE;?></p>
-        <div class="mt-2">
+
+      <div class="col-8 misc-wrapper card mx-auto p-3">
+        
+        <?php include "./modulos/logo.php"; ?>
+      
+        <div class="my-2">
           <img
             src="<?php echo media; ?>assets/img/illustrations/girl-doing-yoga-light.png"
             alt="girl-doing-yoga-light"
-            width="500"
-            class="img-fluid"
-            data-app-dark-img="illustrations/girl-doing-yoga-dark.png"
-            data-app-light-img="illustrations/girl-doing-yoga-light.png"
+            class="h-25r w-100 my-auto"
           />
         </div>
-        <a style="margin-top: 1%;" href="login">
-        <button class="btn btn-primary btn-lg" type="button">
-          <i class="menu-icon tf-icons bx bx-log-in"></i>
-            Iniciar Sesión
-          </button>
-        </a>
-      </div>
-    </div>
-    <!-- /Under Maintenance -->
 
-    <!-- / Content -->
+        <div class="pt-3 w-100 h-auto">
+          <a href="login">
+            <button class="btn btn-primary btn-lg" type="button">
+              <i class="menu-icon tf-icons bx bx-log-in"></i>
+              Log in
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </div>
 
     <?php include "./modulos/scripts.php"; ?>
 
