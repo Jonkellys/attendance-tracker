@@ -12,8 +12,10 @@
     unset($_SESSION['genero']);
           
     session_destroy();
-    header('Location: http://localhost/sistema-asistencias/login');
+    header('Location: http://localhost/attendance-tracker/login');
   }
+
+  $page = "employees";
 ?>
 
 <!DOCTYPE html>
@@ -34,186 +36,118 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Personal | <?php echo NOMBRE;?></title>
-
+    <title>Employees | <?php echo NOMBRE;?></title>
     <meta name="description" content="" />
-
     <?php include "./modulos/links.php"; ?>
 
   </head>
 
   <body>
-    <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-        <!-- Menu -->
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo" style="padding: 4%;">
-            <a href="javascript:void(0);" class="app-brand-link">
-            <span style="width: 18%; height: 25%;" class="app-brand-logo demo">
-              <img style="width: 100%; height: 100%;" src="<?php echo media; ?>assets/img/logo1.png" alt="">
-            </span>
-            <h5 class="demo menu-text fw-bolder ms-2" style="width: fit-content; margin-top: 8%;"><?php echo NOMBRE; ?></h5>
-            </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
-          </div>
+        <?php include "./modulos/menu.php"?>
 
-          <div class="menu-inner-shadow"></div>
-
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item">
-              <a href="dashboard" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-              </a>
-            </li>
-
-            <!-- Layouts -->
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Información</span>
-            </li>
-            <li class="menu-item active ">
-              <a href="javascript:void(0);" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-group"></i>
-                <div data-i18n="Personal">Personal</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="asistencias" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-calendar"></i>
-                <div data-i18n="Registros">Asistencias</div>
-              </a>
-            </li>
-
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Cuentas</span>
-            </li>
-            <li class="menu-item">
-            <a href="administradores" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-male"></i>
-                <div data-i18n="Usuarios">Usuarios</div>
-              </a>
-            </li>
-            <?php include "./modulos/logout.php"; ?>
-          </ul>
-        </aside>
-        <!-- / Menu -->
-
-        <!-- Layout container -->
         <div class="layout-page">
-          <!-- Content wrapper -->
           <div class="content-wrapper">
-            <!-- Content -->
             <div class="container-fluid flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Información / </span> Personal</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Information / </span> Employees</h4>
               
               <div class="demo-inline-spacing">
                 <button type="button" style="margin: 0% 1% 1% 1%;" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#PerAdd" aria-expanded="false" aria-controls="collapseAdminAdd">
-                  <span class="tf-icons bx bx-user-plus"></span>   Añadir Personal
+                  <span class="tf-icons bx bx-user-plus"></span>   Add Employee
                 </button>
-                <a class="btn btn-md btn-info" href="conexiones/PersonalList.php" target="_blank"><i class='bx bxs-file-pdf'></i>   Generar reporte del Personal</a>
+                <a class="btn btn-md btn-info" href="conexiones/PersonalList.php" target="_blank"><i class='bx bxs-file-pdf'></i>   Generate Employees Record</a>
               </div>
 
               <div class="card mt-4">
                 <div class="collapse" id="PerAdd">
                   <div class="card ">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h4 class="mb-0">Datos Personales</h4>
+                      <h4 class="mb-0">Employee Information</h4>
                     </div>
                     <div class="card-body form-resto">
                       <form action="<?php echo SERVERURL; ?>conexiones/personalReg.php" autocomplete="off" id="perForm" enctype="multipart/form-data" method="POST" data-form="save" class="FormularioAjax">
-                      <input type="hidden" name="tipo" value="<?php echo $_SESSION['tipo']; ?>">
                       
                       <div class="row mb-3">
-                        <label for="nombrePerAdd" class="form-label">Nombre</label>
+                        <label for="nombrePerAdd" class="form-label">Name</label>
                         <div class="col-sm-10">
-                          <input type="text" name="name" autocapitalize="words" onkeypress="return letras(event)" id="nombrePerAdd" class="form-control" placeholder="Ingresar Nombre" />
+                          <input type="text" name="name" autocapitalize="words" onkeypress="return letras(event)" id="nombrePerAdd" class="form-control" placeholder="Enter Name" />
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="apellidoPerAdd" class="form-label">Apellido</label>
+                        <label for="apellidoPerAdd" class="form-label">Lastname</label>
                         <div class="col-sm-10">
-                          <input type="text" name="apellido" autocapitalize="words" onkeypress="return letras(event)" id="apellidoPerAdd" class="form-control" placeholder="Ingresar Apellido" />
+                          <input type="text" name="apellido" autocapitalize="words" onkeypress="return letras(event)" id="apellidoPerAdd" class="form-control" placeholder="Enter Lastname" />
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="cedulaPerAdd" class="form-label">Cédula</label>
+                        <label for="cedulaPerAdd" class="form-label">Position</label>
                         <div class="col-sm-10">
-                          <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Ingresar Cédula" />
-                        </div>
-                      </div>
-
-                      <div class="row mb-3">
-                        <label for="cedulaPerAdd" class="form-label">Cargo</label>
-                        <div class="col-sm-10">
-                          <input type="text" name="cargo" onkeypress="return letras(event)" class="form-control" placeholder="Ingresar Cargo" />
+                          <input type="text" name="cargo" onkeypress="return letras(event)" class="form-control" placeholder="Enter Position" />
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <div class="row-md">
-                          <label for="genero" class="form-label">Género</label>
+                          <label for="genero" class="form-label">Gender</label>
                           <div class="form-check mt-0">
-                            <input name="genero" class="form-check-input" type="radio" value="Femenino" id="femeninoPerAdd" checked="">
-                            <label class="form-check-label" for="femenino"> Femenino </label>
+                            <input name="genero" class="form-check-input" type="radio" value="Female" id="femeninoPerAdd" checked="">
+                            <label class="form-check-label" for="femenino"> Female </label>
                           </div>
                           <div class="form-check">
-                            <input name="genero" class="form-check-input" type="radio" value="Masculino" id="masculinoPerAdd">
-                            <label class="form-check-label" for="masculino"> Masculino </label>
+                            <input name="genero" class="form-check-input" type="radio" value="Male" id="masculinoPerAdd">
+                            <label class="form-check-label" for="masculino"> Male </label>
                           </div>
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="telefonoPerAdd" class="form-label">Teléfono</label>
+                        <label for="telefonoPerAdd" class="form-label">Phone</label>
                         <div class="col-sm-10">
-                          <input type="text" onkeypress="return numeros(event)" name="telefono" id="telefonoPerAdd" class="form-control" placeholder="Ingresar Teléfono" />
+                          <input type="text" onkeypress="return numeros(event)" name="telefono" id="telefonoPerAdd" class="form-control" placeholder="Enter Phone" />
                         </div>
                         <div class="mt-2">
                           <div class="form-check">
-                            <input class="form-check-input" value="No tiene teléfono" name="noTel" value="" type="checkbox" id="noTelf" />
-                            <label class="form-check-label" for="noTelf"> No tiene teléfono </label>
+                            <input class="form-check-input" value="Doesn't have phone" name="noTel" value="" type="checkbox" id="noTelf" />
+                            <label class="form-check-label" for="noTelf"> Doesn't have phone </label>
                           </div>
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="correoPerAdd" class="form-label">Correo</label>
+                        <label for="correoPerAdd" class="form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" name="correo" id="correoPerAdd" class="form-control" placeholder="Ingresar Correo" />
+                          <input type="email" name="correo" id="correoPerAdd" class="form-control" placeholder="Enter Email" />
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="direccionPerAdd" class="form-label">Dirección</label>
+                        <label for="direccionPerAdd" class="form-label">Address</label>
                         <div class="col-sm-10">
-                          <input type="text" name="direccion" autocapitalize="on" id="direccionPerAdd" class="form-control" placeholder="Ingresar Dirección" />
+                          <input type="text" name="direccion" autocapitalize="on" id="direccionPerAdd" class="form-control" placeholder="Enter Address" />
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="fechanacPerAdd" class="form-label">Fecha de Nacimiento</label>
+                        <label for="fechanacPerAdd" class="form-label">Date of Birth</label>
                         <div class="col-sm-10">
                           <input class="form-control" name="fechaNac" type="date" value="" id="html5-date-input">
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="lugarnacPerAdd" class="form-label">Lugar de Nacimiento</label>
+                        <label for="lugarnacPerAdd" class="form-label">Place of Birth</label>
                         <div class="col-sm-10">
-                          <input type="text" name="lugarNac" onkeypress="return letras(event)" autocapitalize="words" id="correoAdminAdd" class="form-control" placeholder="Ingresar Lugar de Nacimiento" />
+                          <input type="text" name="lugarNac" onkeypress="return letras(event)" autocapitalize="words" id="correoAdminAdd" class="form-control" placeholder="Enter Place of Birth" />
                         </div>
                       </div>
 
                       <br>
                       <div class="d-grid gap-2 col-lg-6 mx-auto">
-                        <button class="btn btn-primary" value="Generate QR Code" id="btn" type="submit">Registrar Personal</button>
+                        <button class="btn btn-primary" id="btn" type="submit">Add Employee</button>
                       </div>
                       <div id="respuesta" style="margin-top: 3%;" class="RespuestaAjax"></div>
                     </form>
@@ -224,18 +158,17 @@
 
               <div class="card mt-4">
                 <div class="card" style="padding: 0px 2%;">
-                  <h5 class="card-header">Lista de Personal</h5>
+                  <h5 class="card-header">Employees List</h5>
                   <div class="table-responsive text-nowrap" style="overflow: hidden;">
                     <table class="table table-hover" style="margin-bottom: 2%;" id="table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Nombre</th>
-                          <th>Apellido</th>
-                          <th>Cédula</th>
-                          <th>Cargo</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Name</th>
+                          <th>Lastname</th>
+                          <th>Position</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody class="table-border-bottom-0">
@@ -255,7 +188,6 @@
                                   <td> <strong>" . $num++ . "</strong></td>
                                   <td>" . $rows['PersonalNombre'] . "</td>
                                   <td>" . $rows['PersonalApellido'] . "</td>
-                                  <td>" . $rows['PersonalCedula'] . "</td>
                                   <td>" . $rows['PersonalCargo'] . "</td>
                                   <td>" . $rows['PersonalEstado'] . "</td>
                                   <td class='mt-0'>
@@ -272,13 +204,10 @@
                           };  
                         ?>
                       </tbody>
-                      
                     </table>
                   </div>
                 </div>
               </div>  
-
-              
 
             </div>
           </div>
@@ -292,18 +221,6 @@
     <script src="<?php echo media; ?>assets/vendor/js/principal.js"></script>
     <script src="<?php echo media; ?>assets/datatables/config.js"></script>
     <script>
-      $("#cedula").on({
-        "focus": function (event) {
-            $(event.target).select();
-        },
-        "keyup": function (event) {
-          $(event.target).val(function (index, value ) {
-                return value.replace(/\D/g, "")
-                .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
-              });
-            }
-      });
-
       function letras(e) {
         tecla = (document.all) ? e.keyCode : e.which;
 

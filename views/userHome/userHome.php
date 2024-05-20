@@ -34,7 +34,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Home | <?php echo NOMBRE;?></title>
+    <title>Dashboard | <?php echo NOMBRE;?></title>
     <meta name="description" content="" />
     <?php include "./modulos/links.php"; ?>
 
@@ -120,7 +120,7 @@
                     <div style="height: fit-content; width: max-content;" class="col-md-6 col-lg-6 mt-3">
                       <?php
                         $conn = new mysqli($servername, $username, $password, $dbname);
-                        $female = "Women";
+                        $female = "Female";
                         $male = "Male";
 
                         $estado1 = "SELECT id FROM personal WHERE PersonalGenero = '$female'";

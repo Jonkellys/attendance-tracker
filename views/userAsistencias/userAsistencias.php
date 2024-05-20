@@ -15,7 +15,7 @@
     header('Location: http://localhost/sistema-asistencias/login');
   }
 
-  $page = "attendances";
+  $page = "attendance";
 ?>
 
 <!DOCTYPE html>

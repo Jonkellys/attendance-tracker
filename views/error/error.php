@@ -16,23 +16,15 @@
     />
 
     <title>Error 404</title>
-
     <meta name="description" content="" />
-
     <?php include "./modulos/links.php"; ?>
-
-
   </head>
 
   <body>
-    <!-- Content -->
-
-    <!-- Error -->
     <div class="container-xxl container-p-y">
       <div class="misc-wrapper">
-        <h2 class="mb-2 mx-2">Página No Encontrada</h2>
-        <p class="mb-4 mx-2">Oops! 😖 La Dirección de Url No Fue Encontrada.</p>
-        <a href="home" class="btn btn-primary">Volver al Inicio</a>
+        <h2 class="mb-2 mx-2">Page</h2>
+        <p class="mb-4 mx-2">Oops! 😖 The Url address wasn't found.</p>
         <div class="mt-3">
           <img
             src="<?php echo media; ?>assets/img/illustrations/page-misc-error-light.png"
@@ -45,10 +37,6 @@
         </div>
       </div>
     </div>
-    <!-- /Error -->
-
-    <!-- / Content -->
-
 
     <?php include "./modulos/scripts.php"; ?>
 

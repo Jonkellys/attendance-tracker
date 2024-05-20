@@ -8,7 +8,7 @@
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $set = $conn->prepare("SET @@SQL_MODE = REPLACE(@@SQL_MODE, 'NO_ZERO_DATE', '');");
-    $set->execute();
+            $set->execute();
 
             $stmt = $conn->prepare("INSERT INTO personal(PersonalNombre, PersonalApellido, PersonalCedula, PersonalCargo, PersonalFechaNac, PersonalLugarNac, PersonalGenero, PersonalDireccion, PersonalTelefono, PersonalCorreo, PersonalCodigo, PersonalEstado, PersonalUltimaEntrada) 
             VALUES(:nombre, :apellido, :cedula, :cargo, DATE_FORMAT(:fechaNac, '%Y-%m-%d'), :lugarNac, :genero, :direccion, :telefono, :correo, :codigo, :estado, :ultima)");
@@ -39,36 +39,25 @@
             $correo = strClean($_POST["correo"]);
             $ultima = $salida = date("0000-00-00 00:00:00");
 
-            $tipo = strClean($_POST['tipo']);
-
             $noT = strClean($_POST["noTel"]);
-            $estado = "Activo";
+            $estado = "Active";
 
             if($telefono == "") {
                 $telefono = $noT;
             }
 
-            if($nombre == "" || $apellido == "" || $cedula == "" || $cargo == "" || $lugarNac == "" || $direccion == "" || $correo == "") {
+            if($nombre == "" || $apellido == "" || $cargo == "" || $lugarNac == "" || $direccion == "" || $correo == "") {
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        Debes llenar todos los campos.
+                        You must complete all fields.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
                 exit(); 
             }
 
-            $consulta = ejecutar_consulta_simple("SELECT PersonalCedula FROM personal WHERE PersonalCedula = '$cedula'");
-            if($consulta->rowCount()>=1) {
-                echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        La cédula ingresada ya está registrada en el sistema.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-                exit();
-            }
-
             $consulta1 = ejecutar_consulta_simple("SELECT PersonalCorreo FROM personal WHERE PersonalCorreo = '$correo'");
             if($consulta1->rowCount()>=1) {
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        El correo ingresado ya está registrado en el sistema.
+                        The entered email is already registered in the system.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
                 exit();
@@ -77,23 +66,17 @@
             $consulta2= ejecutar_consulta_simple("SELECT id FROM personal");
             $numero = ($consulta2->rowCount())+1;
 
-            $codigo = generar_codigo_aleatorio("P", 7, $numero);
-
-            if($tipo == "Administrador") {
-                $url = "http://localhost/sistema-asistencias/personal";
-            } else {
-                $url = "http://localhost/sistema-asistencias/userPersonal";
-            }
+            $codigo = generar_codigo_aleatorio("E", 7, $numero);
 
             if($stmt->execute()){
                 echo '<div class="alert alert-success alert-dismissible" role="alert">
-                        Personal registrado correctamente.
+                        Employee registered correctly.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
-                echo '<script> window.location.href = "' . $url . '"; </script>';
+                echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
             } else{
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        Hubo un error intente de nuevo.
+                        There was a problem, try again later.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
             }

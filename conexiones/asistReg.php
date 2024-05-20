@@ -19,11 +19,9 @@
 
     $consulta= ejecutar_consulta_simple("SELECT id FROM asistencias");
     $numero = ($consulta->rowCount())+1;
-    $codigo = generar_codigo_aleatorio("AS", 7, $numero);
+    $codigo = generar_codigo_aleatorio("A", 7, $numero);
 
     $fecha = date("Y-m-d h:i:s");
-
-    $tipo = strClean($_POST['tipo']);
 
     $stmt = "SELECT * FROM personal WHERE PersonalCodigo = '$personal'";
     $result = $conn->query($stmt);
@@ -33,24 +31,18 @@
         $cedula = $rows['PersonalCedula'];
     };  
 
-    if($tipo == "Administrador") {
-        $url = "http://localhost/sistema-asistencias/asistencias";
-    } else {
-        $url = "http://localhost/sistema-asistencias/userAsistencias";
-    }
-    
     $ultima = $conn->prepare("UPDATE personal SET PersonalUltimaEntrada = '$fecha' WHERE PersonalCodigo = '$personal'");
     $ultima->execute();
 
     if($sql->execute()){
         echo '<div class="alert alert-success alert-dismissible" role="alert">
-                Asistencia registrada correctamente.
+                Attendance registered correctly.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
-            echo '<script> window.location = "' . $url . '"; </script>';
+            echo '<script> window.location = "http://localhost/sistema-asistencias/asistencias"; </script>';
     } else{
         echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                Hubo un error intente de nuevo.
+        There was a problem, try again later.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
     }

@@ -7,11 +7,11 @@ $(document).ready(function(){
       [10, 25, 50, "All"]
   ],
     language: {
-      search: "Buscar",
+      search: "Search",
       searchPlaceholder: "",
-      info: "Mostrando página _PAGE_ de _PAGES_",
-      emptyTable: "No hay registros",
-      infoEmpty: "No hay registros",
+      info: "Showing page _PAGE_ de _PAGES_",
+      emptyTable: "Nothing found",
+      infoEmpty: "Nothing found",
       lengthMenu: "",
       paginate: {
         first: "<i class='bx bx-chevrons-left bx-sm align-middle'></i>",

@@ -30,28 +30,20 @@
     $codigo = strClean($_POST["codigo"]);
 
     $noT = strClean($_POST["noTel"]);
-
-    $tipo = strClean($_POST['tipo']);
     
     if($telefono == "") {
         $telefono = $noT;
     }
 
-    if($tipo == "Administrador") {
-        $url = "http://localhost/sistema-asistencias/personal";
-    } else {
-        $url = "http://localhost/sistema-asistencias/userPersonal";
-    }
-
     if($sql->execute()){
         echo '<div class="alert alert-success alert-dismissible" role="alert">
-                Datos actualizados correctamente.
+                Information updated correctly.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
-        echo '<script> window.location.href = "' . $url . '"; </script>';
+        echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
     } else{
         echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                Hubo un error intente de nuevo.
+                There was a problem, try again later.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
     }
