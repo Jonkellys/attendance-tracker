@@ -49,22 +49,6 @@
         return $con;
     }
 
-    function encrypt($string) {
-        $output = FALSE;
-        $key = hash('sha256', SECRET_KEY);
-        $iv = substr(hash('sha256', SECRET_IV), 0, 4);
-        $output = openssl_encrypt($string, METHOD, $key, 0, $iv);
-        $output = base64_encode($output);
-        return $output;
-    }
-
-    function decrypt($string) {
-        $key = hash('sha256', SECRET_KEY);
-        $iv = substr(hash('sha256', SECRET_IV), 0, 4);
-        $output = openssl_decrypt(base64_decode($string), METHOD, $key, 0, $iv);
-        return $output;
-    }
-
     function ejecutar_consulta_simple($consulta) {
         $consul = conectar()->prepare($consulta);
         $consul->execute();
@@ -78,6 +62,17 @@
         }
 
         return $letra . "-" . $num;
+    }
+
+    function generar_codigo_sesion($length = 20) {
+        $random_string="";
+
+        while(strlen($random_string) < $length && $length > 0) {
+            $randnum = mt_rand(0,61);
+            $random_string .= ($randnum < 10) ? chr($randnum+48) : ($randnum < 36 ? chr($randnum+55) : $randnum+61);
+        }
+
+        return $random_string;
     }
 
     function crearCuenta($codigo, $nombre, $apellido, $usuario, $clave, $email, $tipo, $genero) {

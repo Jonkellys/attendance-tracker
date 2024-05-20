@@ -21,30 +21,43 @@
     $mesI = date("m", $fechaInicio);
     $mesF = date("m", $fechaFin);
 
-    if ($mesI == "01") {
-        $nombreMesI = "Enero";
-    } else if ($mesI == "02") {
-        $nombreMesI = "Febrero";
-    } else if($mesI == "03") {
-        $nombreMesI = "Marzo";
-    } else if ($mesI == "04") {
-        $nombreMesI = "Abril";
-    } else if ($mesI == "05") {
-        $nombreMesI = "Mayo";
-    } else if ($mesI == "06") {
-        $nombreMesI = "Junio";
-    } else if ($mesI == "07") {
-        $nombreMesI = "Julio";
-    } else if ($mesI == "08") {
-        $nombreMesI = "Agosto";
-    } else if ($mesI == "09") {
-        $nombreMesI = "Septiembre";
-    } else if ($mesI == "10") {
-        $nombreMesI = "Octubre";
-    } else if ($mesI == "11") {
-        $nombreMesI = "Noviembre";
-    } else if ($mesI == "12") {
-        $nombreMesI = "Diciembre";
+    switch ($mesI) {
+        case '01':
+            $nombreMesI = "Enero";
+            break;
+        case '02':
+            $nombreMesI = "Febrero";
+            break;
+        case '03':
+            $nombreMesI = "Marzo";
+            break;
+        case '04':
+            $nombreMesI = "Abril";
+            break;
+        case '05':
+            $nombreMesI = "Mayo";
+            break;
+        case '06':
+            $nombreMesI = "Junio";
+            break;
+        case '07':
+            $nombreMesI = "Julio";
+            break;
+        case '08':
+            $nombreMesI = "Agosto";
+            break;
+        case '09':
+            $nombreMesI = "Septiembre";
+            break;
+        case '10':
+            $nombreMesI = "Octubre";
+            break;
+        case '11':
+            $nombreMesI = "Noviembre";
+            break;
+        case '12':
+            $nombreMesI = "Diciembre";
+            break;
     }
 
     if ($mesF == "01") {
