@@ -195,7 +195,7 @@
                                       <span class='tf-icons bx bx-edit'></span>
                                     </a>
                                     
-                                    <a class='btn btn-sm btn-danger' href= 'conexiones/eliminarPersonal.php?codigo=" . $rows['PersonalCodigo'] . "'>
+                                    <a class='btn btn-sm btn-danger' href='deletePersonal?codigo=" . $rows['PersonalCodigo'] . "'>
                                       <span class='tf-icons bx bx-trash'></span>
                                     </a>
 

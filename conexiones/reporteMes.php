@@ -23,110 +23,109 @@
 
     switch ($mesI) {
         case '01':
-            $nombreMesI = "Enero";
+            $nombreMesI = "January";
             break;
         case '02':
-            $nombreMesI = "Febrero";
+            $nombreMesI = "February";
             break;
         case '03':
-            $nombreMesI = "Marzo";
+            $nombreMesI = "March";
             break;
         case '04':
-            $nombreMesI = "Abril";
+            $nombreMesI = "April";
             break;
         case '05':
-            $nombreMesI = "Mayo";
+            $nombreMesI = "May";
             break;
         case '06':
-            $nombreMesI = "Junio";
+            $nombreMesI = "June";
             break;
         case '07':
-            $nombreMesI = "Julio";
+            $nombreMesI = "July";
             break;
         case '08':
-            $nombreMesI = "Agosto";
+            $nombreMesI = "August";
             break;
         case '09':
-            $nombreMesI = "Septiembre";
+            $nombreMesI = "September";
             break;
         case '10':
-            $nombreMesI = "Octubre";
+            $nombreMesI = "October";
             break;
         case '11':
-            $nombreMesI = "Noviembre";
+            $nombreMesI = "November";
             break;
         case '12':
-            $nombreMesI = "Diciembre";
+            $nombreMesI = "December";
             break;
     }
 
     if ($mesF == "01") {
-        $nombreMesF = "Enero";
+        $nombreMesF = "January";
     } else if ($mesF == "02") {
-        $nombreMesF = "Febrero";
+        $nombreMesF = "February";
     } else if($mesF == "03") {
-        $nombreMesF = "Marzo";
+        $nombreMesF = "March";
     } else if ($mesF == "04") {
-        $nombreMesF = "Abril";
+        $nombreMesF = "April";
     } else if ($mesF == "05") {
-        $nombreMesF = "Mayo";
+        $nombreMesF = "May";
     } else if ($mesF == "06") {
-        $nombreMesF = "Junio";
+        $nombreMesF = "June";
     } else if ($mesF == "07") {
-        $nombreMesF = "Julio";
+        $nombreMesF = "July";
     } else if ($mesF == "08") {
-        $nombreMesF = "Agosto";
+        $nombreMesF = "August";
     } else if ($mesF == "09") {
-        $nombreMesF = "Septiembre";
+        $nombreMesF = "September";
     } else if ($mesF == "10") {
-        $nombreMesF = "Octubre";
+        $nombreMesF = "October";
     } else if ($mesF == "11") {
-        $nombreMesF = "Noviembre";
+        $nombreMesF = "November";
     } else if ($mesF == "12") {
-        $nombreMesF = "Diciembre";
+        $nombreMesF = "December";
     }
 
     require "../plantilla/assets/fpdf/fpdf.php";
 
     $pdf = new FPDF("P", "mm", "letter");
     $pdf->AddPage("Landscape");
-    $pdf->SetTitle(utf8_decode("Reporte de Asistencias"), false);
+    $pdf->SetTitle("Attendances Record", false);
 
-    $pdf->Image("../plantilla/assets/img/logo1.png", 10, 5, 20);
-    $pdf->Cell(20);
-    $pdf->SetFont('Arial', '', 14);
-    $pdf->Write(10, utf8_decode('Sistema de Gestión de Asistencias v0.1'));
-    $pdf->SetFont('Arial', '', 10);
+    $pdf->Image("../plantilla/assets/img/logo1.png", 10, 8, 12);
+    $pdf->Cell(15);
+    $pdf->SetFont('Arial', '', 24);
+    $pdf->Write(10, 'Attendance Tracker');
+    $pdf->SetFont('Arial', '', 12);
 
     $pdf->Ln(18);
     $pdf->Cell(5);
     if ($persona == "Todos") {
-        $pdf->Write(10, "Personal: Todos");
+        $pdf->Write(10, "Employee: All");
     } else {
-        $pdf->Write(10, "Personal: " . $data->PersonalNombre . " " . $data->PersonalApellido);
+        $pdf->Write(10, "Employee: " . $data->PersonalNombre . " " . $data->PersonalApellido);
     }
     $pdf->Ln(5);
     $pdf->Cell(5);
-    $pdf->Write(10, "Desde: " . date("d-m-Y", $fechaInicio) . " - Hasta: " . date("d-m-Y", $fechaFin));
+    $pdf->Write(10, "Since: " . date("d-m-Y", $fechaInicio) . " - Until: " . date("d-m-Y", $fechaFin));
 
     $pdf->Ln(15);
-    $pdf->Cell(70);
+    $pdf->Cell(100);
     $pdf->SetFont('Arial', 'B', 14);
-    $pdf->Write("10", utf8_decode('Reporte de Asistencias'));
+    $pdf->Write(0, 'Attendance Record');
     $pdf->Ln(15);
      
     
 
     $pdf->SetFont('Arial', 'B', 9);
     $pdf->Cell(18);
-    $pdf->Cell(10, 9, utf8_decode('N'), 1);
-    $pdf->Cell(60, 9, utf8_decode('Nombre y Apellido'), 1);
-    $pdf->Cell(30, 9, utf8_decode('Cédula'), 1);
-    $pdf->Cell(30, 9, utf8_decode('Cargo'), 1);
-    $pdf->Cell(10, 9, utf8_decode('Día'), 1);
-    $pdf->Cell(25, 9, utf8_decode('Entrada'), 1);
-    $pdf->Cell(25, 9, utf8_decode('Salida'), 1);
-    $pdf->Cell(25, 9, utf8_decode('Horas Totales'), 1, 1);
+    $pdf->Cell(10, 9, 'N', 1);
+    $pdf->Cell(60, 9, 'Name and Lastname', 1);
+    $pdf->Cell(40, 9, 'Position', 1);
+    $pdf->Cell(30, 9, 'Date', 1);
+    $pdf->Cell(25, 9, 'Arrival', 1);
+    $pdf->Cell(25, 9, 'Exit', 1);
+    $pdf->Cell(25, 9, 'Total Hours', 1, 1);
     
     $pdf->SetFont("Arial", "", 9);
 
@@ -152,10 +151,9 @@ $hasta = date("Y-m-d", strtotime("+1 day", strtotime($fin))) . " 00:00:00";
 
         $pdf->Cell(18);
         $pdf->Cell(10, 9, $num++, 1);
-        $pdf->Cell(60, 9, utf8_decode($rows['AsistenciaNombre']), 1);
-        $pdf->Cell(30, 9, utf8_decode($rows['PersonalCedula']), 1);
-        $pdf->Cell(30, 9, utf8_decode($cargo->PersonalCargo), 1);
-        $pdf->Cell(10, 9, date("d",  $entradaF), 1);
+        $pdf->Cell(60, 9, $rows['AsistenciaNombre'], 1);
+        $pdf->Cell(40, 9, $cargo->PersonalCargo, 1);
+        $pdf->Cell(30, 9, date("m-d-Y",  $entradaF), 1);
         $pdf->Cell(25, 9, date("h:i:s", $entradaF), 1);
         $pdf->Cell(25, 9, date("h:i:s", $salidaF), 1);
         $pdf->Cell(25, 9, date("h:i:s", $salidaF) - date("h:i:s", $entradaF), 1, 1);

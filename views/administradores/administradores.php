@@ -149,7 +149,7 @@
                 <div class="card" style="padding: 0px 2%;">
                   <h5 class="card-header">Admins Lists</h5>
                   <div class="table-responsive text-nowrap" style="overflow: hidden;">
-                    <table class="table table-hover" style="margin-bottom: 2%;" id="table">
+                    <table class="table table-hover" style="margin-bottom: 2%;" id="updateTable">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -180,53 +180,21 @@
                                       <span class='tf-icons bx bx-edit'></span>
                                     </a>
                                     
-                                    <a class='btn btn-sm btn-danger' href= 'conexiones/eliminarAdmin.php?codigo=" . $rows['CuentaCodigo'] . "'>
-                                  <span class='tf-icons bx bx-trash'></span>
-                                </a>
+
+                                    <a class='btn btn-sm btn-danger' href='deleteAdmin?codigo=" . $rows['CuentaCodigo'] . "'>
+                                      <span class='tf-icons bx bx-trash'></span>
+                                    </a>
+                                    
                                     
                                   </td>
                                 </tr>";
                           };  
+                        //   <a class='btn btn-sm btn-danger' href='conexiones/eliminarAdmin.php?codigo=" . $rows['CuentaCodigo'] . "'>
+                        //   <span class='tf-icons bx bx-trash'></span>
+                        // </a>
                         ?>
                       </tbody>
                     </table>
-                    <?php
-
-                      $con = new mysqli($servername, $username, $password, $dbname);
-                      $sql = "SELECT * FROM admins";
-                
-                      if($result = mysqli_query($con, $sql)) {
-                        $rowcount = mysqli_num_rows($result);
-                      }
-
-                      $codigo = $_GET['codigo'];
-
-                      if (isset($codigo)) {
-
-                        if($rowcount != 1) {
-                          $sql = $conn->prepare("DELETE FROM admins WHERE CuentaCodigo = '$codigo'");
-                          $sql1 = $conn->prepare("DELETE FROM cuentas WHERE CuentaCodigo = '$codigo'");
-
-                          if ($sql->execute() && $sql1->execute()) {
-                            echo '<div class="alert alert-success" role="alert">
-                                    Admin deleted correctly.
-                                  </div>';
-                            echo '<script> window.location.href = "http://localhost/attendance-tracker/administradores"; </script>';
-                          } else {
-                            echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                                    There was a problem, try again later.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                  </div>';
-                          }
-                        } else {
-                          echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                                  You need to have at least one admin.
-                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>';
-                          echo '<script> window.location.href = "http://localhost/attendance-tracker/administradores"; </script>';
-                        }
-                      }
-                    ?>
                   </div>
                 </div>
               </div>

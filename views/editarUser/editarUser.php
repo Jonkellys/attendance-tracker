@@ -66,18 +66,15 @@
               $data1 = $sql1->fetch(PDO::FETCH_OBJ);
             ?>
 
-            <div class="">
+            <div id="updateCard">
               <div class="container-fluid flex-grow-1 container-p-y">
                 <h4 class="fw-bold mt-4">Update information of "<?php echo $data->UserName; ?>"</h4>
 
                 <div class="row g-0 card" style="flex-direction: row;">
-                  <div class="col-md-4">
+                  <div class="col-md-4 mb-2">
                     <img class="card-img card-img-left" src="<?php echo media; ?>assets/img/edit.svg">
-                    <div class="d-grid gap-2 col-lg-8 mx-auto">
-                      <a href="users" class="btn btn-outline-secondary">Volver</a>
-                      <div class="alert alert-primary role="alert">
-                        <b>Nota: </b>Actualice la página luego de actualizar.
-                      </div>
+                    <div class="d-grid gap-2 col-lg-8 mx-auto mb-5">
+                      <a href="users" class="btn btn-outline-secondary">Return</a>
                     </div>
                   </div>
 
@@ -88,13 +85,13 @@
                           <li class="nav-item">
                             <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#verDatosPerfil" aria-controls="verDatosPerfil" aria-selected="true">
                               <i class="menu-icon tf-icons bx bx-show"></i>
-                              Datos
+                              Information
                             </button>
                           </li>
                           <li class="nav-item">
                             <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#editarDatosPerfil" aria-controls="editarDatosPerfil" aria-selected="false">
                               <i class="menu-icon tf-icons bx bx-edit"></i>  
-                              Editar
+                              Update
                             </button>
                           </li>
                         </ul>
@@ -130,7 +127,6 @@
                                         <input type="text" name="apellido" class="form-control" autocapitalize="on" value="<?php echo $data1->CuentaApellido; ?>"/>
                                       </div>
                                     </div>
-                                    <div class="row">
                                     <div class="col mb-3">
                                         <label for="nombreper" class="form-label">Username:</label>
                                         <input type="text" name="usuario" class="form-control" autocapitalize="on" value="<?php echo $data->UserName; ?>"/>

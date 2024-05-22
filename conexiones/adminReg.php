@@ -82,7 +82,7 @@
                         Administrador registrado correctamente.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
-                echo '<script> window.location.href = "http://localhost/sistema-asistencias/administradores"; </script>';
+                echo '<script> window.location.href = "http://localhost/attendance-tracker/administradores"; </script>';
             } else{
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
                         Hubo un error intente de nuevo.

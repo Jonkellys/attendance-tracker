@@ -33,7 +33,7 @@ require_once "./funciones.php";
                         Debes llenar todos los campos.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
-                exit(); 
+                exit();
             }
 
             if(strlen($clave) < 8){
@@ -79,14 +79,12 @@ require_once "./funciones.php";
 
             $guardarCuenta = crearCuenta($codigo, $nombre, $apellido, $usuario, $password, $email, $tipo, $genero);
 
-            $url = "http://localhost/sistema-asistencias/users";
-
             if($stmt->execute()){
                 echo '<div class="alert alert-success alert-dismissible" role="alert">
                         Usuario registrado correctamente.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
-                echo '<script> window.location.href = "' . $url . '"; </script>';
+                    echo '<script> window.location.href = "http://localhost/attendance-tracker/users"; </script>';
             } else{
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
                         Hubo un error intente de nuevo.

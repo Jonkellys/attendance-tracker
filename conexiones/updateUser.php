@@ -19,15 +19,9 @@
     $updateUser = updateCuenta($nombre, $apellido, $usuario, $correo, $genero, $codigo);
 
     if($sql->execute()){
-        echo '<div class="alert alert-success alert-dismissible" role="alert">
-                Datos actualizados correctamente.
-            </div>';
-        echo '<script> window.location.href = "http://localhost/sistema-asistencias/users"; </script>';
-    } else{
-        echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                Hubo un error intente de nuevo.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
+        echo "<script>new swal('Success', 'User updated successfully', 'success');</script>";
+        echo '<script> $("#updateCard").load(location.href + " #updateCard"); </script>';
+        $updateAdmin = updateCuenta($nombre, $apellido, $usuario, $correo, $genero, $codigo);
     }
 
 ?>

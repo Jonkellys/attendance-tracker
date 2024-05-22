@@ -1,5 +1,7 @@
 <?php
+    require_once "./funciones.php";
 
+  try {
     $servername = "localhost";
     $dbname = "sistema-asistencias";
     $username = "root";
@@ -8,15 +10,18 @@
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $codigo = $_GET['codigo'];
+    $codigo = strClean($_POST["codigo"]);
 
     $sql = "DELETE FROM personal WHERE PersonalCodigo = '$codigo'";
 
-    if($conn->query($sql)) {
-      echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
-    } else {
-      echo "<span class='badge badge-center rounded-pill bg-danger' data-bs-toggle='tooltip' data-bs-offset='0,4' data-bs-placement='right' data-bs-html='true' title='' data-bs-original-title='<span>Employee couldn't be eliminated</span>'><span class='tf-icons bx bx-x'></span></span>";
-    }
+    $conn->query($sql);
 
+    echo "<script>new swal('Success', 'Employee deleted successfully', 'success');</script>";
+    echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
+  } 
+  catch(PDOException $e) {
+      echo "Error: " . $e->getMessage();
+  }
+  $conn = null;
 ?>
 

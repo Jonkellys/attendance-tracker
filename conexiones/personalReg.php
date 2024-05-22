@@ -10,12 +10,11 @@
             $set = $conn->prepare("SET @@SQL_MODE = REPLACE(@@SQL_MODE, 'NO_ZERO_DATE', '');");
             $set->execute();
 
-            $stmt = $conn->prepare("INSERT INTO personal(PersonalNombre, PersonalApellido, PersonalCedula, PersonalCargo, PersonalFechaNac, PersonalLugarNac, PersonalGenero, PersonalDireccion, PersonalTelefono, PersonalCorreo, PersonalCodigo, PersonalEstado, PersonalUltimaEntrada) 
-            VALUES(:nombre, :apellido, :cedula, :cargo, DATE_FORMAT(:fechaNac, '%Y-%m-%d'), :lugarNac, :genero, :direccion, :telefono, :correo, :codigo, :estado, :ultima)");
+            $stmt = $conn->prepare("INSERT INTO personal(PersonalNombre, PersonalApellido, PersonalCargo, PersonalFechaNac, PersonalLugarNac, PersonalGenero, PersonalDireccion, PersonalTelefono, PersonalCorreo, PersonalCodigo, PersonalEstado, PersonalUltimaEntrada) 
+            VALUES(:nombre, :apellido, :cargo, DATE_FORMAT(:fechaNac, '%Y-%m-%d'), :lugarNac, :genero, :direccion, :telefono, :correo, :codigo, :estado, :ultima)");
 
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellido', $apellido);
-            $stmt->bindParam(':cedula', $cedula);
             $stmt->bindParam(':cargo', $cargo);
             $stmt->bindParam(':fechaNac', $fechaNac);
             $stmt->bindParam(':lugarNac', $lugarNac);
@@ -29,7 +28,6 @@
             
             $nombre = strClean($_POST["name"]);
             $apellido = strClean($_POST["apellido"]);
-            $cedula = strClean($_POST["cedula"]);
             $cargo = strClean($_POST["cargo"]);
             $fechaNac = strClean($_POST["fechaNac"]);
             $lugarNac = strClean($_POST["lugarNac"]);
@@ -69,16 +67,8 @@
             $codigo = generar_codigo_aleatorio("E", 7, $numero);
 
             if($stmt->execute()){
-                echo '<div class="alert alert-success alert-dismissible" role="alert">
-                        Employee registered correctly.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
+                echo "<script>new swal('Success', 'Employee added successfully', 'success');</script>";
                 echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
-            } else{
-                echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        There was a problem, try again later.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
             }
         } 
         catch(PDOException $e) {

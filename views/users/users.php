@@ -149,7 +149,7 @@
                 <div class="card" style="padding: 0px 2%;">
                   <h5 class="card-header">Admin Lists</h5>
                   <div class="table-responsive text-nowrap" style="overflow: hidden;">
-                    <table class="table table-hover" style="margin-bottom: 2%;" id="table">
+                    <table class="table table-hover" style="margin-bottom: 2%;" id="updateTable">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -176,13 +176,13 @@
                                   <td>" . $rows['UserName'] . "</td>
                                   <td>" . $rows['UserEmail'] . "</td>
                                   <td class='mt-0'>
-                                  <a class='btn btn-sm btn-info' href='editarUser?codigo=" . $rows['CuentaCodigo'] . "'>
-                                  <span class='tf-icons bx bx-edit'></span>
-                                </a>
-                                
-                                <a class='btn btn-sm btn-danger' href= 'conexiones/eliminarUser.php?codigo=" . $rows['CuentaCodigo'] . "'>
-                                  <span class='tf-icons bx bx-trash'></span>
-                                </a>
+                                    <a class='btn btn-sm btn-info' href='editarUser?codigo=" . $rows['CuentaCodigo'] . "'>
+                                      <span class='tf-icons bx bx-edit'></span>
+                                    </a>
+                                    
+                                    <a class='btn btn-sm btn-danger' href='deleteUsers?codigo=" . $rows['CuentaCodigo'] . "'>
+                                      <span class='tf-icons bx bx-trash'></span>
+                                    </a>
                                   </td>
                                 </tr>";
                           };  

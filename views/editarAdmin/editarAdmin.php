@@ -65,7 +65,7 @@
               $data1 = $sql1->fetch(PDO::FETCH_OBJ);
             ?>
 
-            <div class="">
+            <div id="updateCard">
               <div class="container-fluid flex-grow-1 container-p-y">
                 <h4 class="fw-bold mt-4">Update information of "<?php echo $data->AdminUsuario; ?>"</h4>
 
@@ -73,10 +73,7 @@
                   <div class="col-md-4">
                     <img class="card-img card-img-left" src="<?php echo media; ?>assets/img/edit.svg">
                     <div class="d-grid gap-2 col-lg-8 mx-auto">
-                      <a href="administradores" style="margin-bottom: 20%;" class="btn btn-outline-secondary">Volver</a>
-                      <div class="alert alert-primary role="alert">
-                        <b>Nota: </b>Actualice la página luego de actualizar.
-                      </div>
+                      <a href="administradores" style="margin-bottom: 20%;" class="btn btn-outline-secondary">Return</a>
                     </div>
                   </div>
 
@@ -129,31 +126,30 @@
                                   <input type="text" name="apellido" class="form-control" autocapitalize="on" value="<?php echo $data1->CuentaApellido; ?>"/>
                                 </div>
                               </div>
-                              <div class="row">
-                              <div class="col mb-3">
-                                  <label for="nombreper" class="form-label">Username:</label>
-                                  <input type="text" name="usuario" class="form-control" autocapitalize="on" value="<?php echo $data->AdminUsuario; ?>"/>
-                                </div>
-                              </div>
-                              <div class="row">
                                 <div class="col mb-3">
-                                  <label for="apellidoper" class="form-label">Email:</label>
-                                  <input type="email" name="correo" class="form-control" autocapitalize="on" value="<?php echo $data->AdminEmail; ?>"/>
-                                </div>
-                              </div>  
-                              <div class="row">
-                                <div class="col mb-3">
-                                  <label for="generoper" class="form-label">Gender:</label>
-                                  <div class="form-check mt-0">
-                                    <input name="genero" class="form-check-input" type="radio" value="Female" id="femeninoPerAdd" checked="">
-                                    <label class="form-check-label" for="femenino"> Female </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input name="genero" class="form-check-input" type="radio"  value="Male" id="masculinoPerAdd">
-                                    <label class="form-check-label" for="masculino"> Male </label>
+                                    <label for="nombreper" class="form-label">Username:</label>
+                                    <input type="text" name="usuario" class="form-control" autocapitalize="on" value="<?php echo $data->AdminUsuario; ?>"/>
                                   </div>
                                 </div>
-                              </div>                  
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="apellidoper" class="form-label">Email:</label>
+                                    <input type="email" name="correo" class="form-control" autocapitalize="on" value="<?php echo $data->AdminEmail; ?>"/>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="generoper" class="form-label">Gender:</label>
+                                    <div class="form-check mt-0">
+                                      <input name="genero" class="form-check-input" type="radio" value="Female" id="femeninoPerAdd" checked="">
+                                      <label class="form-check-label" for="femenino"> Female </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input name="genero" class="form-check-input" type="radio"  value="Male" id="masculinoPerAdd">
+                                      <label class="form-check-label" for="masculino"> Male </label>
+                                    </div>
+                                  </div>
+                                </div>                  
                               <input type="hidden" name="codigo" value="<?php echo $data->CuentaCodigo; ?>">
                               <div class="d-grid gap-2 col-lg-6 mx-auto">
                                 <button type="submit" class="btn btn-primary">Update</button>

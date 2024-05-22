@@ -10,7 +10,6 @@
  *   DataTables 1.13.1
  */
 
-@charset "UTF-8";
 table.dataTable td.dt-control {
   text-align: center;
   cursor: pointer;
