@@ -63,7 +63,7 @@
                         <a class="nav-link active" href="javascript:void(0);"> Attendances</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="registros"> Records</a>
+                        <a class="nav-link" href="records"> Records</a>
                       </li>
                     </ul>
                   </div>
@@ -232,7 +232,7 @@
                     $sql = $conn->prepare("UPDATE asistencias SET AsistenciaSalida = '$salida' WHERE AsistenciaCodigo = '$codigo'");
 
                     if ($sql->execute()) {
-                      echo '<script> window.location = "http://localhost/attendance-tracker/asistencias"; </script>';
+                      echo '<script> window.location = "http://localhost/attendance-tracker/attendances"; </script>';
                     } else {
                       echo '<div class="alert alert-danger alert-dismissible" role="alert">
                               There was a problem, try again later.

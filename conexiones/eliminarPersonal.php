@@ -17,7 +17,7 @@
     $conn->query($sql);
 
     echo "<script>new swal('Success', 'Employee deleted successfully', 'success');</script>";
-    echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
+    echo '<script> window.location.href = "http://localhost/attendance-tracker/employees"; </script>';
   } 
   catch(PDOException $e) {
       echo "Error: " . $e->getMessage();

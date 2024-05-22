@@ -44,7 +44,7 @@
                 $pdf->Cell(260, 28, 'Address', 1);
                 $pdf->Cell(160, 28, 'Phone', 1);
                 $pdf->Cell(260, 28, 'Email', 1);
-                $pdf->Cell(210, 28, 'PLace of Birth', 1);
+                $pdf->Cell(210, 28, 'Place of Birth', 1);
                 $pdf->Cell(160, 28, 'Date of Birth', 1, 1);
             
                 $pdf->SetFont("Arial", "", 14);

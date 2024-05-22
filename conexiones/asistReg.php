@@ -39,7 +39,7 @@
                         Attendance registered correctly.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
-                    echo '<script> window.location = "http://localhost/attendance-tracker/asistencias"; </script>';
+                    echo '<script> window.location = "http://localhost/attendance-tracker/attendances"; </script>';
             } else{
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
                 There was a problem, try again later.

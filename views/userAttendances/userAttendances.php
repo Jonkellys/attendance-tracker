@@ -59,7 +59,7 @@
                       <a class="nav-link active" href="javascript:void(0);"> Attendances</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="userRegistros"> Records</a>
+                      <a class="nav-link" href="userRecords"> Records</a>
                     </li>
                   </ul>
                 </div>

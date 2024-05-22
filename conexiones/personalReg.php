@@ -68,7 +68,7 @@
 
             if($stmt->execute()){
                 echo "<script>new swal('Success', 'Employee added successfully', 'success');</script>";
-                echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
+                echo '<script> window.location.href = "http://localhost/attendance-tracker/employees"; </script>';
             }
         } 
         catch(PDOException $e) {

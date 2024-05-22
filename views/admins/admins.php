@@ -176,7 +176,7 @@
                                   <td>" . $rows['AdminUsuario'] . "</td>
                                   <td>" . $rows['AdminEmail'] . "</td>
                                   <td class='mt-0'>
-                                    <a class='btn btn-sm btn-info' href='editarAdmin?codigo=" . $rows['CuentaCodigo'] . "'>
+                                    <a class='btn btn-sm btn-info' href='updateAdmin?codigo=" . $rows['CuentaCodigo'] . "'>
                                       <span class='tf-icons bx bx-edit'></span>
                                     </a>
                                     
@@ -188,10 +188,7 @@
                                     
                                   </td>
                                 </tr>";
-                          };  
-                        //   <a class='btn btn-sm btn-danger' href='conexiones/eliminarAdmin.php?codigo=" . $rows['CuentaCodigo'] . "'>
-                        //   <span class='tf-icons bx bx-trash'></span>
-                        // </a>
+                          };
                         ?>
                       </tbody>
                     </table>

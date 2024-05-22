@@ -69,7 +69,7 @@
                   <div class="col-md-4">
                     <img class="card-img card-img-left" src="<?php echo media; ?>assets/img/edit.svg">
                     <div class="d-grid gap-2 col-lg-6 mx-auto">
-                      <a href="personal" class="btn btn-outline-secondary">Return</a>
+                      <a href="employees" class="btn btn-outline-secondary">Return</a>
                     </div>
                   </div>
 

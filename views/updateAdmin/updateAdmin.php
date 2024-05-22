@@ -73,7 +73,7 @@
                   <div class="col-md-4">
                     <img class="card-img card-img-left" src="<?php echo media; ?>assets/img/edit.svg">
                     <div class="d-grid gap-2 col-lg-8 mx-auto">
-                      <a href="administradores" style="margin-bottom: 20%;" class="btn btn-outline-secondary">Return</a>
+                      <a href="admins" style="margin-bottom: 20%;" class="btn btn-outline-secondary">Return</a>
                     </div>
                   </div>
 

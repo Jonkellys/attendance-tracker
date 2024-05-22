@@ -56,7 +56,7 @@
                 <div class="col-md-12">
                   <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                      <a class="nav-link" href="userAsistencias"> Attendances</a>
+                      <a class="nav-link" href="userAttendances"> Attendances</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="javascript:void(0);"> Records</a>

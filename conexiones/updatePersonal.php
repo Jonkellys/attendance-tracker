@@ -38,7 +38,7 @@
                 Information updated correctly.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
-        echo '<script> window.location.href = "http://localhost/attendance-tracker/personal"; </script>';
+        echo '<script> window.location.href = "http://localhost/attendance-tracker/employees"; </script>';
     } else{
         echo '<div class="alert alert-danger alert-dismissible" role="alert">
                 There was a problem, try again later.

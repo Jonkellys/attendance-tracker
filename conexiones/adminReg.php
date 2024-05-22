@@ -28,7 +28,7 @@
 
             if($usuario == "" || $email == "" || $clave == "" || $confirmar == "" || $nombre == "" || $apellido == "") {
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        Debes llenar todos los campos.
+                Y       You must complete all fields.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
                 exit(); 
@@ -36,24 +36,24 @@
 
             if(strlen($clave) < 8){
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        La contraseña debe tener mínimo 8 carácteres.
+                        The password must be at least 8 characters long.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
                 exit();
             }
             
             if($clave != $confirmar){
-                echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        Las contraseñas no coinciden.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
+                echo "<div class='alert alert-danger alert-dismissible' role='alert'>
+                         The passwords don't match.
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>";
                 exit();
             }  
 
             $consulta2 = ejecutar_consulta_simple("SELECT AdminUsuario FROM admins WHERE AdminUsuario = '$usuario'");
                 if($consulta2->rowCount()>=1) {
                     echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                            El usuario ingresado ya está registrado en el sistema.
+                            The entered username is already registered in the system.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>';
                     exit();
@@ -62,7 +62,7 @@
             $consulta3 = ejecutar_consulta_simple("SELECT AdminEmail FROM admins WHERE AdminEmail = '$email'");
             if($consulta3->rowCount()>=1) {
                 echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        El correo ingresado ya está registrado en el sistema.
+                        The entered email is already registered in the system.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
                 exit();
@@ -79,15 +79,10 @@
 
             if($stmt->execute()){
                 echo '<div class="alert alert-success alert-dismissible" role="alert">
-                        Administrador registrado correctamente.
+                        Admin saved correctñy.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
-                echo '<script> window.location.href = "http://localhost/attendance-tracker/administradores"; </script>';
-            } else{
-                echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                        Hubo un error intente de nuevo.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
+                echo '<script> window.location.href = "http://localhost/attendance-tracker/admins"; </script>';
             }
         } 
         catch(PDOException $e) {
