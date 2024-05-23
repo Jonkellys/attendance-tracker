@@ -27,13 +27,13 @@
       <span class="menu-header-text">Information</span>
     </li>
     <li class="menu-item <?php echo ($page == "employees") ? "active" : "" ?>">
-      <a href="<?php echo ($page == "employees") ? "javascript:void(0);" : "personal" ?>" class="menu-link">
+      <a href="<?php echo ($page == "employees") ? "javascript:void(0);" : "employees" ?>" class="menu-link">
         <i class="menu-icon tf-icons bx bx-group"></i>
         <div data-i18n="Personal">Employees</div>
       </a>
     </li>
     <li class="menu-item <?php echo ($page == "attendance") ? "active" : "" ?>">
-      <a href="<?php echo ($page == "attendance") ? "javascript:void(0);" : "asistencias" ?>" class="menu-link">
+      <a href="<?php echo ($page == "attendance") ? "javascript:void(0);" : "attendances" ?>" class="menu-link">
         <i class="menu-icon tf-icons bx bx-calendar"></i>
         <div data-i18n="Registros">Attendances</div>
       </a>
@@ -43,7 +43,7 @@
         <span class="menu-header-text">Accounts</span>
     </li>
     <li class="menu-item <?php echo ($page == "admins") ? "active" : "" ?>">
-      <a href="<?php echo ($page == "admins") ? "javascript:void(0);" : "administradores" ?>" class="menu-link">
+      <a href="<?php echo ($page == "admins") ? "javascript:void(0);" : "admins" ?>" class="menu-link">
         <i class="menu-icon tf-icons bx bx-male"></i>
         <div data-i18n="Usuarios">Users</div>
       </a>

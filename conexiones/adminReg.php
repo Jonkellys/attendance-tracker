@@ -73,7 +73,7 @@
 
             $codigo = generar_codigo_aleatorio("AO", 7, $numero);
 
-            $tipo = "Administrador";
+            $tipo = "Admin";
 
             $guardarCuenta = crearCuenta($codigo, $nombre, $apellido, $usuario, $password, $email, $tipo, $genero);
 

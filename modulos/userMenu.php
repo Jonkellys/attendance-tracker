@@ -27,14 +27,14 @@
         <span class="menu-header-text">Information</span>
     </li>
     <li class="menu-item  <?php echo ($page == "employees") ? "active" : "" ?>">
-      <a href="<?php echo ($page == "employees") ? "javascript:void(0);" : "userPersonal" ?>" class="menu-link">
+      <a href="<?php echo ($page == "employees") ? "javascript:void(0);" : "userEmployees" ?>" class="menu-link">
         <i class="menu-icon tf-icons bx bx-group"></i>
         <div data-i18n="Personal">Employees</div>
       </a>
     </li>
             
     <li class="menu-item <?php echo ($page == "attendances") ? "active" : "" ?>">
-      <a href="<?php echo ($page == "attendances") ? "javascript:void(0);" : "userAsistencias" ?>" class="menu-link">
+      <a href="<?php echo ($page == "attendances") ? "javascript:void(0);" : "userAttendances" ?>" class="menu-link">
         <i class="menu-icon tf-icons bx bx-calendar"></i>
         <div data-i18n="Registros">Attendances</div>
       </a>

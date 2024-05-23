@@ -176,7 +176,7 @@
                                   <td>" . $rows['UserName'] . "</td>
                                   <td>" . $rows['UserEmail'] . "</td>
                                   <td class='mt-0'>
-                                    <a class='btn btn-sm btn-info' href='editarUser?codigo=" . $rows['CuentaCodigo'] . "'>
+                                    <a class='btn btn-sm btn-info' href='updateUser?codigo=" . $rows['CuentaCodigo'] . "'>
                                       <span class='tf-icons bx bx-edit'></span>
                                     </a>
                                     

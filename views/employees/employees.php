@@ -191,11 +191,11 @@
                                   <td>" . $rows['PersonalCargo'] . "</td>
                                   <td>" . $rows['PersonalEstado'] . "</td>
                                   <td class='mt-0'>
-                                    <a class='btn btn-sm btn-info' href='editar?codigo=" . $rows['PersonalCodigo'] . "'>
+                                    <a class='btn btn-sm btn-info' href='update?codigo=" . $rows['PersonalCodigo'] . "'>
                                       <span class='tf-icons bx bx-edit'></span>
                                     </a>
                                     
-                                    <a class='btn btn-sm btn-danger' href='deletePersonal?codigo=" . $rows['PersonalCodigo'] . "'>
+                                    <a class='btn btn-sm btn-danger' href='deleteEmployee?codigo=" . $rows['PersonalCodigo'] . "'>
                                       <span class='tf-icons bx bx-trash'></span>
                                     </a>
 

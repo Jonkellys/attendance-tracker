@@ -113,48 +113,6 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="collapse mt-3" id="salida">
-                  <div class="card ">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Choose employee to set exit</h5>
-                    </div>
-
-                    <div class="card-body form-resto">
-                      <form action="<?php echo SERVERURL; ?>conexiones/salida.php" id="perForm" enctype="multipart/form-data" method="POST" data-form="save" >
-                        <div class="mb-3">
-                          <div class="mt-2">
-                            <label for="personlSelect" class="form-label">Employees:</label>
-                            <select class="form-select" name="salida" id="personlSelect" aria-label="Default select example">
-                              <option selected="" disabled>Choose...</option>
-                              <?php
-                                $servername = "localhost";
-                                $dbname = "sistema-asistencias";
-                                $username = "root";
-                                $password = "";
-                                $dia = date("d");
-                                
-                                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                                $sql = "SELECT * FROM asistencias WHERE HOUR(AsistenciaSalida) = '00' AND DAY(AsistenciaFecha) = '$dia'";
-                                $result = $conn->query($sql);
-                                
-                                while ($rows = $result->fetch()) {
-                                  $hora = $rows['AsistenciaFecha'];
-                                  echo'<option value="' . $rows['AsistenciaCodigo'] . '">' . $rows['AsistenciaNombre'] . ' - ' . 'Llegada: ' . date("h:i:s", strtotime($hora)) . '</option>';
-                                };  
-                              ?>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="d-grid gap-2 col-lg-6 mx-auto">
-                          <button class="btn btn-primary" id="btn" type="submit">Add exit time</button>
-                        </div>
-                        <div id="respuesta" style="margin-top: 3%;" class="RespuestaAjax"></div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
                       
                 <div class="card mb-4 mt-3">
                   <div class="card" style="padding: 0px 2%;">
@@ -167,7 +125,6 @@
                             <th>Employee</th>
                             <th>Arrival</th>
                             <th>Exit</th>
-                            <th>Delete</th>
                             <th>Add exit</th>
                           </tr>
                         </thead>
@@ -188,7 +145,7 @@
                             while ($rows = $result->fetch()) {
                               if($rows['AsistenciaSalida'] == "0000-00-00 00:00:00") {
                                 $hora = "No exit yet";
-                                $sal =  "<a href='asistencias?codigo=" . $rows['AsistenciaCodigo'] . "' class='btn btn-sm btn-info' data-bs-toggle='tooltip' data-bs-offset='0,4' data-bs-placement='top' data-bs-html='true' title='' data-bs-original-title='<span>Añadir Salida</span>'>
+                                $sal =  "<a href='attendances?codigo=" . $rows['AsistenciaCodigo'] . "' class='btn btn-sm btn-info' data-bs-toggle='tooltip' data-bs-offset='0,4' data-bs-placement='top' data-bs-html='true' title='' data-bs-original-title='<span>Añadir Salida</span>'>
                                             <span class='tf-icons bx bx-log-out'></span>
                                           </a>";
                               } else {
@@ -201,11 +158,6 @@
                                     <td>" . $rows['AsistenciaNombre'] . "</td>
                                     <td>" . $rows['AsistenciaFecha']. "</td>
                                     <td>" . $hora . "</td>
-                                    <td>
-                                      <a class='btn btn-sm btn-danger' href= 'conexiones/eliminarAsist.php?codigo=" . $rows['AsistenciaCodigo'] . "'>
-                                        <span class='tf-icons bx bx-trash'></span>
-                                      </a>
-                                    </td>
                                     <td>" . $sal . "</td>
                                   </tr>";  
                             };  
