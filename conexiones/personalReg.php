@@ -11,7 +11,7 @@
             $set->execute();
 
             $stmt = $conn->prepare("INSERT INTO personal(PersonalNombre, PersonalApellido, PersonalCargo, PersonalFechaNac, PersonalLugarNac, PersonalGenero, PersonalDireccion, PersonalTelefono, PersonalCorreo, PersonalCodigo, PersonalEstado, PersonalUltimaEntrada) 
-            VALUES(:nombre, :apellido, :cargo, DATE_FORMAT(:fechaNac, '%Y-%m-%d'), :lugarNac, :genero, :direccion, :telefono, :correo, :codigo, :estado, :ultima)");
+            VALUES(:nombre, :apellido, :cargo, DATE_FORMAT(:fechaNac, '%Y/%m/%d'), :lugarNac, :genero, :direccion, :telefono, :correo, :codigo, :estado, :ultima)");
 
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellido', $apellido);
